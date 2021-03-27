@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.customer.detail.title">Customer</span> {{ customer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.legalId">Legal Id</span></dt>
+                <dd>
+                    <span>{{ customer.legalId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.tscid">Tscid</span></dt>
+                <dd>
+                    <span>{{ customer.tscid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.corporateName">Corporate Name</span></dt>
+                <dd>
+                    <span>{{ customer.corporateName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.marketCompany">Market Company</span></dt>
+                <dd>
+                    <span>{{ customer.marketCompany }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.marketArea">Market Area</span></dt>
+                <dd>
+                    <span>{{ customer.marketArea }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.billingAccount">Billing Account</span></dt>
+                <dd>
+                    <div *ngIf="customer.billingAccount">
+                        <a [routerLink]="['/billing-account', customer.billingAccount?.id, 'view']">{{ customer.billingAccount?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.customerContactInfo">Customer Contact Info</span></dt>
+                <dd>
+                    <div *ngIf="customer.customerContactInfo">
+                        <a [routerLink]="['/customer-contact-info', customer.customerContactInfo?.id, 'view']">{{ customer.customerContactInfo?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.shippingAddress">Shipping Address</span></dt>
+                <dd>
+                    <div *ngIf="customer.shippingAddress">
+                        <a [routerLink]="['/address', customer.shippingAddress?.id, 'view']">{{ customer.shippingAddress?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customer.legalAddress">Legal Address</span></dt>
+                <dd>
+                    <div *ngIf="customer.legalAddress">
+                        <a [routerLink]="['/address', customer.legalAddress?.id, 'view']">{{ customer.legalAddress?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

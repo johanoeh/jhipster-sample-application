@@ -1,0 +1,30 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "billingAccount": {
+      "home": {
+        "title": "Billing Accounts",
+        "createLabel": "Create a new Billing Account",
+        "createOrEditLabel": "Create or edit a Billing Account",
+        "notFound": "No Billing Accounts found"
+      },
+      "created": "A new Billing Account is created with identifier {{ param }}",
+      "updated": "A Billing Account is updated with identifier {{ param }}",
+      "deleted": "A Billing Account is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Billing Account {{ id }}?"
+      },
+      "detail": {
+        "title": "Billing Account"
+      },
+      "invoiceReference": "Invoice Reference",
+      "accountId": "Account Id",
+      "primaryBillingProfileId": "Primary Billing Profile Id",
+      "exemptFromVat": "Exempt From Vat",
+      "invoiceContactPhone": "Invoice Contact Phone",
+      "invoiceMethod": "Invoice Method",
+      "invoiceEMailAddress": "Invoice E Mail Address",
+      "customerSubscription": "Customer Subscription",
+      "invoiceAddress": "Invoice Address"
+    }
+  }
+}

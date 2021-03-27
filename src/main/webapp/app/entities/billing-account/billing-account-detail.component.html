@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billingAccount">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.detail.title">Billing Account</span> {{ billingAccount.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.invoiceReference">Invoice Reference</span></dt>
+                <dd>
+                    <span>{{ billingAccount.invoiceReference }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.accountId">Account Id</span></dt>
+                <dd>
+                    <span>{{ billingAccount.accountId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.primaryBillingProfileId">Primary Billing Profile Id</span></dt>
+                <dd>
+                    <span>{{ billingAccount.primaryBillingProfileId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.exemptFromVat">Exempt From Vat</span></dt>
+                <dd>
+                    <span>{{ billingAccount.exemptFromVat }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.invoiceContactPhone">Invoice Contact Phone</span></dt>
+                <dd>
+                    <span>{{ billingAccount.invoiceContactPhone }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.invoiceMethod">Invoice Method</span></dt>
+                <dd>
+                    <span>{{ billingAccount.invoiceMethod }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.invoiceEMailAddress">Invoice E Mail Address</span></dt>
+                <dd>
+                    <span>{{ billingAccount.invoiceEMailAddress }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.customerSubscription">Customer Subscription</span></dt>
+                <dd>
+                    <div *ngIf="billingAccount.customerSubscription">
+                        <a [routerLink]="['/customer-subscription', billingAccount.customerSubscription?.id, 'view']">{{ billingAccount.customerSubscription?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.billingAccount.invoiceAddress">Invoice Address</span></dt>
+                <dd>
+                    <div *ngIf="billingAccount.invoiceAddress">
+                        <a [routerLink]="['/address', billingAccount.invoiceAddress?.id, 'view']">{{ billingAccount.invoiceAddress?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-account', billingAccount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

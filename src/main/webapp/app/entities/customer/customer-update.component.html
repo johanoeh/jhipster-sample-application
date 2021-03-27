@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-customer-heading" jhiTranslate="jhipsterSampleApplicationApp.customer.home.createOrEditLabel">Create or edit a Customer</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.legalId" for="field_legalId">Legal Id</label>
+                    <input type="text" class="form-control" name="legalId" id="field_legalId"
+                           formControlName="legalId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.tscid" for="field_tscid">Tscid</label>
+                    <input type="text" class="form-control" name="tscid" id="field_tscid"
+                           formControlName="tscid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.corporateName" for="field_corporateName">Corporate Name</label>
+                    <input type="text" class="form-control" name="corporateName" id="field_corporateName"
+                           formControlName="corporateName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.marketCompany" for="field_marketCompany">Market Company</label>
+                    <input type="checkbox" class="form-control" name="marketCompany" id="field_marketCompany"
+                           formControlName="marketCompany"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.marketArea" for="field_marketArea">Market Area</label>
+                    <input type="text" class="form-control" name="marketArea" id="field_marketArea"
+                           formControlName="marketArea"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.billingAccount" for="field_billingAccount">Billing Account</label>
+                    <select class="form-control" id="field_billingAccount" name="billingAccount" formControlName="billingAccount">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="billingAccountOption.id === editForm.get('billingAccount')!.value?.id ? editForm.get('billingAccount')!.value : billingAccountOption" *ngFor="let billingAccountOption of billingaccounts; trackBy: trackById">{{ billingAccountOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.customerContactInfo" for="field_customerContactInfo">Customer Contact Info</label>
+                    <select class="form-control" id="field_customerContactInfo" name="customerContactInfo" formControlName="customerContactInfo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerContactInfoOption.id === editForm.get('customerContactInfo')!.value?.id ? editForm.get('customerContactInfo')!.value : customerContactInfoOption" *ngFor="let customerContactInfoOption of customercontactinfos; trackBy: trackById">{{ customerContactInfoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.shippingAddress" for="field_shippingAddress">Shipping Address</label>
+                    <select class="form-control" id="field_shippingAddress" name="shippingAddress" formControlName="shippingAddress">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressOption.id === editForm.get('shippingAddress')!.value?.id ? editForm.get('shippingAddress')!.value : addressOption" *ngFor="let addressOption of shippingaddresses; trackBy: trackById">{{ addressOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customer.legalAddress" for="field_legalAddress">Legal Address</label>
+                    <select class="form-control" id="field_legalAddress" name="legalAddress" formControlName="legalAddress">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressOption.id === editForm.get('legalAddress')!.value?.id ? editForm.get('legalAddress')!.value : addressOption" *ngFor="let addressOption of legaladdresses; trackBy: trackById">{{ addressOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

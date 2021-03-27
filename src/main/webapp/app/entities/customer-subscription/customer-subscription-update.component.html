@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-customer-subscription-heading" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.home.createOrEditLabel">Create or edit a Customer Subscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.emnId" for="field_emnId">Emn Id</label>
+                    <input type="text" class="form-control" name="emnId" id="field_emnId"
+                           formControlName="emnId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.agreement" for="field_agreement">Agreement</label>
+                    <input type="text" class="form-control" name="agreement" id="field_agreement"
+                           formControlName="agreement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.startDate" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker #startDateDp="ngbDatepicker" formControlName="startDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.endDate" for="field_endDate">End Date</label>
+                    <div class="input-group">
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker #endDateDp="ngbDatepicker" formControlName="endDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.changeDate" for="field_changeDate">Change Date</label>
+                    <div class="input-group">
+                        <input id="field_changeDate" type="text" class="form-control" name="changeDate" ngbDatepicker #changeDateDp="ngbDatepicker" formControlName="changeDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="changeDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.quarterlyFee" for="field_quarterlyFee">Quarterly Fee</label>
+                    <input type="text" class="form-control" name="quarterlyFee" id="field_quarterlyFee"
+                           formControlName="quarterlyFee"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.oneTimeFee" for="field_oneTimeFee">One Time Fee</label>
+                    <input type="text" class="form-control" name="oneTimeFee" id="field_oneTimeFee"
+                           formControlName="oneTimeFee"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.invoiceText" for="field_invoiceText">Invoice Text</label>
+                    <input type="text" class="form-control" name="invoiceText" id="field_invoiceText"
+                           formControlName="invoiceText"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

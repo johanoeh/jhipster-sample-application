@@ -1,0 +1,62 @@
+{
+  "name": "BillingAccount",
+  "fields": [
+    {
+      "fieldName": "invoiceReference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "primaryBillingProfileId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "exemptFromVat",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "invoiceContactPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceMethod",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceEMailAddress",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "customerSubscription",
+      "otherEntityRelationshipName": "billingAccount",
+      "relationshipName": "customerSubscription",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "billingAccount",
+      "relationshipName": "invoiceAddress",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210327100457",
+  "entityTableName": "billing_account",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

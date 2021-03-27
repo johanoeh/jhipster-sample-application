@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.home.title">Customer Subscriptions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer-subscription" [routerLink]="['/customer-subscription/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.home.createLabel">
+            Create a new Customer Subscription
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customerSubscriptions?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.home.notFound">No customerSubscriptions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customerSubscriptions && customerSubscriptions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.emnId">Emn Id</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.agreement">Agreement</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.startDate">Start Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.endDate">End Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.changeDate">Change Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.quarterlyFee">Quarterly Fee</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.oneTimeFee">One Time Fee</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.invoiceText">Invoice Text</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customerSubscription of customerSubscriptions ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer-subscription', customerSubscription.id, 'view']">{{ customerSubscription.id }}</a></td>
+                    <td>{{ customerSubscription.emnId }}</td>
+                    <td>{{ customerSubscription.type }}</td>
+                    <td>{{ customerSubscription.agreement }}</td>
+                    <td>{{ customerSubscription.startDate | date:'mediumDate' }}</td>
+                    <td>{{ customerSubscription.endDate | date:'mediumDate' }}</td>
+                    <td>{{ customerSubscription.changeDate | date:'mediumDate' }}</td>
+                    <td>{{ customerSubscription.quarterlyFee }}</td>
+                    <td>{{ customerSubscription.oneTimeFee }}</td>
+                    <td>{{ customerSubscription.invoiceText }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer-subscription', customerSubscription.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer-subscription', customerSubscription.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customerSubscription)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerSubscription">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.detail.title">Customer Subscription</span> {{ customerSubscription.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.emnId">Emn Id</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.emnId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.type">Type</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.agreement">Agreement</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.agreement }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.changeDate">Change Date</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.changeDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.quarterlyFee">Quarterly Fee</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.quarterlyFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.oneTimeFee">One Time Fee</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.oneTimeFee }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerSubscription.invoiceText">Invoice Text</span></dt>
+                <dd>
+                    <span>{{ customerSubscription.invoiceText }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-subscription', customerSubscription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

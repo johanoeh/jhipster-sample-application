@@ -1,0 +1,70 @@
+{
+  "name": "Customer",
+  "fields": [
+    {
+      "fieldName": "legalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tscid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "corporateName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "marketCompany",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "marketArea",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "billingAccount",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "billingAccount",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "customerContactInfo",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "customerContactInfo",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "shippingAddress",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "legalAddress",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210327100757",
+  "entityTableName": "customer",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

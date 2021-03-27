@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.customer.home.title">Customers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer" [routerLink]="['/customer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.customer.home.createLabel">
+            Create a new Customer
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customers?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.customer.home.notFound">No customers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customers && customers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.legalId">Legal Id</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.tscid">Tscid</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.corporateName">Corporate Name</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.marketCompany">Market Company</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.marketArea">Market Area</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.billingAccount">Billing Account</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.customerContactInfo">Customer Contact Info</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.shippingAddress">Shipping Address</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.customer.legalAddress">Legal Address</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer', customer.id, 'view']">{{ customer.id }}</a></td>
+                    <td>{{ customer.legalId }}</td>
+                    <td>{{ customer.tscid }}</td>
+                    <td>{{ customer.corporateName }}</td>
+                    <td>{{ customer.marketCompany }}</td>
+                    <td>{{ customer.marketArea }}</td>
+                    <td>
+                        <div *ngIf="customer.billingAccount">
+                            <a [routerLink]="['/billing-account', customer.billingAccount?.id, 'view']" >{{ customer.billingAccount?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customer.customerContactInfo">
+                            <a [routerLink]="['/customer-contact-info', customer.customerContactInfo?.id, 'view']" >{{ customer.customerContactInfo?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customer.shippingAddress">
+                            <a [routerLink]="['/address', customer.shippingAddress?.id, 'view']" >{{ customer.shippingAddress?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="customer.legalAddress">
+                            <a [routerLink]="['/address', customer.legalAddress?.id, 'view']" >{{ customer.legalAddress?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
