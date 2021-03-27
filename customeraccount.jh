@@ -1,0 +1,92 @@
+
+entity Address {
+	streetAddress String
+    postalCode Integer
+    city String
+    co String
+}
+
+
+entity BillingAccount {
+
+		invoiceReference String
+        accountId String
+        primaryBillingProfileId String
+        exemptFromVat Boolean
+        invoiceContactPhone String
+        invoiceMethod String
+        invoiceEMailAddress String
+        invoiceAddress Address
+        customerSubscription CustomerSubscription
+}
+
+entity CustomerSubscription {
+	emnId String
+    type String
+    agreement String
+    startDate LocalDate
+    endDate LocalDate
+    changeDate LocalDate
+    quarterlyFee String
+    oneTimeFee String
+    invoiceText String
+}
+
+entity CustomerContactInfo {
+	firstName String
+    lastName String
+    email String
+    phone String
+    mobilePhone String
+    address Address
+}
+
+entity Customer {
+
+	legalId String 
+    tscid String
+    corporateName String 
+    marketCompany Boolean 
+    marketArea String
+    customerContactInfo CustomerContactInfo
+    billingAccount BillingAccount
+    legalAddress Address
+    shippingAddress Address
+    
+}
+
+
+
+relationship OneToOne {
+	BillingAccount{customerSubscription} to CustomerSubscription
+}
+
+relationship OneToOne{
+	Customer {billingAccount} to BillingAccount
+
+}
+
+relationship OneToOne{
+	BillingAccount {invoiceAddress} to Address
+
+}
+
+relationship OneToOne{
+	Customer{customerContactInfo} to CustomerContactInfo
+}
+
+relationship OneToOne {
+	Customer{shippingAddress} to Address
+}
+
+relationship OneToOne {
+	CustomerContactInfo{address} to Address
+}
+
+relationship OneToOne {
+	Customer{legalAddress} to Address
+}
+
+
+
+
