@@ -1,0 +1,53 @@
+{
+  "name": "CustomerSubscription",
+  "fields": [
+    {
+      "fieldName": "emnId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "agreement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "changeDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "quarterlyFee",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oneTimeFee",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceText",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210327100557",
+  "entityTableName": "customer_subscription",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

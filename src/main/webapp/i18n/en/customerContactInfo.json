@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "customerContactInfo": {
+      "home": {
+        "title": "Customer Contact Infos",
+        "createLabel": "Create a new Customer Contact Info",
+        "createOrEditLabel": "Create or edit a Customer Contact Info",
+        "notFound": "No Customer Contact Infos found"
+      },
+      "created": "A new Customer Contact Info is created with identifier {{ param }}",
+      "updated": "A Customer Contact Info is updated with identifier {{ param }}",
+      "deleted": "A Customer Contact Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Customer Contact Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Contact Info"
+      },
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "mobilePhone": "Mobile Phone",
+      "address": "Address"
+    }
+  }
+}

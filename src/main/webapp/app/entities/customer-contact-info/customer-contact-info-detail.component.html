@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerContactInfo">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.customerContactInfo.detail.title">Customer Contact Info</span> {{ customerContactInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerContactInfo.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ customerContactInfo.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerContactInfo.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ customerContactInfo.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerContactInfo.email">Email</span></dt>
+                <dd>
+                    <span>{{ customerContactInfo.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerContactInfo.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ customerContactInfo.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerContactInfo.mobilePhone">Mobile Phone</span></dt>
+                <dd>
+                    <span>{{ customerContactInfo.mobilePhone }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.customerContactInfo.address">Address</span></dt>
+                <dd>
+                    <div *ngIf="customerContactInfo.address">
+                        <a [routerLink]="['/address', customerContactInfo.address?.id, 'view']">{{ customerContactInfo.address?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-contact-info', customerContactInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
